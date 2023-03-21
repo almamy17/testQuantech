@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="exo3.js"></script>
+    <title>top 10 populaires</title>
+</head>
+<body>
+    <div id="liste">
+
+    </div>
+    
+</body>
+<script>
+    var list;
+    fetch("https://ghapi.huchen.dev/repositories?since=")
+    .then(response => response.json())
+    .then(response => list=JSON.stringify(response))
+    .catch(error => alert("Erreur : " + error));
+    var div = document.getElementById('liste');
+    div.innerHTML += list;
+</script>
+</html>
